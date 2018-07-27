@@ -1,5 +1,6 @@
 
 pull_my_repos = True
+# from https://github.com/settings/tokens
 github_api_token = ''
 default_destination = '~/git'
 my_github_username = ''
