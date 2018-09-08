@@ -143,7 +143,7 @@ def run_main():
             if {clone} ; then
                 {echo} git clone "{sshUrl}" {redirect_stdout}
             else
-                echo "couldn't find repository {local_destination}/{local_repo_dir_name}!"
+                echo "couldn't find repository {local_destination}/{local_repo_dir_name}! did you mean to {__file__} --clone?"
             fi
         else
             {echo} cd "{local_repo_dir_name}"
@@ -161,6 +161,7 @@ def run_main():
             echo=echo,
             redirect_stdout=redirect_stdout,
             clone=str(args.clone).lower(),
+            __file__=__file__,
         )
         exit_code = subprocess.call(command, shell=True)
         if not dry_run:
